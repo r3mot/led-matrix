@@ -1,21 +1,21 @@
 import "./style.css";
-import { Matrix } from "./scripts/Matrix";
+import { Matrix } from "./scripts";
+import { demoButtonToggle } from "./demo/demoBtn";
 
-const matrix = new Matrix({
+const options = {
   width: 100,
   height: 100,
   class: "led-matrix",
   onColor: "red",
   offColor: "black",
   bgColor: "black",
-});
+};
+const displayMessage = "hello, world!";
 
-const grid = document.getElementById("grid");
+const matrix = new Matrix(options);
+matrix.setText(displayMessage);
 
-const str = "abcdefg";
-
-for (let i = 0; i < str.length; i++) {
-  const el = matrix.render(str[i]);
-
-  grid!.appendChild(el);
-}
+// TODO: integrate toggle features into Matrix class
+const b = document.getElementById("toggle") as HTMLButtonElement;
+const b2 = document.getElementById("matrix-animate") as HTMLButtonElement;
+demoButtonToggle(matrix, b, b2);
