@@ -14,7 +14,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  transform: rotate(90deg) rotateX(180deg);
 }
 
 body {
@@ -33,12 +32,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   color: white;
   font-size: 50px;
   font-weight: bold;
-  /* margin: 5px; */
 }
 
 .pixel {
@@ -52,15 +51,69 @@ body {
   border-radius: 50%;
 }
 
-.on {
-  background-color: rgb(85, 219, 8);
-  color: black;
-}
-
 .text {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   margin: 5px;
+}
+
+.grid {
+  display: flex;
+  width: max-content;
+  /* -moz-transform: translateX(300%);
+  -webkit-transform: translateX(300%);
+  transform: translateX(300%);
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite; */
+  animation: scroll 0s linear infinite;
+  overflow: hidden;
+}
+
+.animate {
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+#toggle,
+#matrix-animate {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  filter: drop-shadow(0 0 0.75rem rgb(9, 56, 211));
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+#toggle {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+#matrix-animate {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
+.scroll-text {
+  border: 10px solid rgb(18, 21, 230);
+  padding: 2rem;
+  overflow: hidden;
+  max-width: 1200px;
 }
